@@ -9,7 +9,7 @@ class Methods:
     @staticmethod
     @allure.step('Отправка POST-запроса для создания курьера')
     def create_courier(payload):
-        return requests.post(url=Endpoints.CREATE_COURIER_ENDPOINT, data=payload)
+        return requests.post(url=Endpoints.CREATE_COURIER_ENDPOINT, json=payload)
 
     @staticmethod
     @allure.step('Отправка POST-запроса для авторизации курьера')
@@ -18,12 +18,12 @@ class Methods:
             'login': login,
             'password': password
         }
-        return requests.post(url=Endpoints.LOGIN_COURIER_ENDPOINT, data=payload)
+        return requests.post(url=Endpoints.LOGIN_COURIER_ENDPOINT, json=payload)
 
     @staticmethod
     @allure.step('Отправка POST-запроса для создания заказа')
     def make_order(payload):
-        return requests.post(url=Endpoints.MAKE_ORDER_ENDPOINT, data=payload)
+        return requests.post(url=Endpoints.MAKE_ORDER_ENDPOINT, json=payload)
 
     @staticmethod
     @allure.step('Отправка GET-запроса для получения списка заказов')
